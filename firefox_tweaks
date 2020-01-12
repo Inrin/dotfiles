@@ -1,0 +1,8 @@
+# Plugins
+umatrix
+ublock origin
+decentraleyes
+
+# might slow down js sites
+javascript.options.ion = false
+javascript.options.baselinejit = false

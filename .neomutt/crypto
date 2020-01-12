@@ -1,0 +1,3 @@
+#set crypt_use_gpgme = yes
+source /usr/share/doc/neomutt/samples/gpg.rc
+source /usr/share/doc/neomutt/samples/smime.rc

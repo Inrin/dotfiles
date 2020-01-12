@@ -1,0 +1,62 @@
+#------------------------------------------------------------
+# Vi Key Bindings
+#------------------------------------------------------------
+
+# Moving around
+bind attach,browser,index       G   last-entry
+bind pager                      G   bottom
+bind pager                      k   previous-line
+bind pager                      j   next-line
+
+# Scrolling
+bind attach,browser,pager,index \CF next-page
+#bind attach,browser,pager,index \CB previous-page
+bind attach,browser,pager,index \Cu half-up
+bind attach,browser,pager,index \Cd half-down
+bind browser,pager              \Ce next-line
+bind browser,pager              \Cy previous-line
+bind index                      \Ce next-line
+bind index                      \Cy previous-line
+
+bind pager,index                d  delete-message
+bind pager,index                <Delete>  delete-message
+bind pager,index                <Esc>\Cp  purge-message
+
+# Threads
+bind browser,pager,index        \C/ search-opposite
+
+#------------------------------------------------------------
+# Sidebar
+#------------------------------------------------------------
+
+bind  pager,index 				B       sidebar-toggle-visible
+macro pager,index 				\Co     <sidebar-open><sidebar-toggle-visible>
+bind  pager,index 				\cj     sidebar-next
+bind  pager,index 				\ck     sidebar-prev
+bind  pager               <Space> skip-quoted
+
+#------------------------------------------------------------
+# IMAP
+#------------------------------------------------------------
+bind pager,index 				<F4> imap-fetch-mail
+
+#------------------------------------------------------------
+# Miscellanous
+#------------------------------------------------------------
+#bind pager,index 				gr group-reply
+bind index 						N toggle-new
+bind pager,index 			M compose-to-sender
+bind index            \CR toggle-read
+bind index            <ESC>\CL show-log-messages
+bind index,pager      \Cn next-unread-mailbox
+#bind browser          > descend-directory
+#bind browser          < goto-parent
+bind browser          U unsubscribe-pattern
+bind browser          S subscribe-pattern
+bind browser          . buffy-list
+bind editor           \Cp history-up
+bind editor           \Cn history-down
+bind index,pager      <ESC>\CK extract-keys
+
+macro index,pager 		\Cb |urlview\n
+macro index,pager 		\CB |urlscan\n

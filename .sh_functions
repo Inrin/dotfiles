@@ -1,0 +1,69 @@
+getRandAlphanumeric()
+{
+  head /dev/urandom | tr -dc A-Z0-9 | head -c"$1"
+}
+
+printcolors()
+{
+  for i in {0..255} ; do printf "\x1b[38;5;${i}mcolour${i}\n" ; done | column
+}
+
+exitcode()
+{
+    ret=$?
+
+    RED='\033[0;31m'
+    NC='\033[0m' # No Color
+
+    if [[ $ret != 0 ]]; then
+        echo -en "${RED}$ret${NC} "
+        ret=0
+    fi
+}
+
+function open_with_pattern() {
+    vim -p $(find . ! -name . ! -name "*.Po" ! -name "*.o" ! -name "*.a" ! -name "tags" -type f -exec grep -l "$1" /dev/null {} +)
+}
+
+function youtube-extract {
+	curl --silent "$1" | grep --color=never -o -E "\"http?s://?(www\.)(youtu.be|youtube.com)/[0-9a-Z_+=/]+\"" | tr -d \"
+}
+
+youtube-comments()
+{
+  youtube-viewer --no-interactive --comments "$1"|less
+}
+
+# Examples:
+#     ix hello.txt              # paste file (name/ext will be set).
+#     echo Hello world. | ix    # read from STDIN (won't set name/ext).
+#     ix -n 1 self_destruct.txt # paste will be deleted after one read.
+#     ix -i ID hello.txt        # replace ID, if you have permission.
+#     ix -d ID
+
+ix() {
+    local opts
+    local OPTIND
+    [ -f "$HOME/.netrc" ] && opts='-n'
+    while getopts ":hd:i:n:" x; do
+        case $x in
+            h) echo "ix [-d ID] [-i ID] [-n N] [opts]"; return;;
+            d) $echo curl $opts -X DELETE ix.io/$OPTARG; return;;
+            i) opts="$opts -X PUT"; local id="$OPTARG";;
+            n) opts="$opts -F read:1=$OPTARG";;
+        esac
+    done
+    shift $(($OPTIND - 1))
+    [ -t 0 ] && {
+        local filename="$1"
+        shift
+        [ "$filename" ] && {
+            curl $opts -F f:1=@"$filename" $* ix.io/$id
+            return
+        }
+        echo "^C to cancel, ^D to send."
+    }
+    curl $opts -F f:1='<-' $* ix.io/$id
+}
+
+source .sh_functions.local

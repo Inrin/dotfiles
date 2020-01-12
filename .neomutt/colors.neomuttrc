@@ -1,0 +1,146 @@
+# -*-muttrc-*-
+# color object foreground background
+# color { header | body } foreground background regex
+# color index-object foreground background pattern
+# color compose composeobject foreground background
+# uncolor { index-object | header | body } { * | pattern ... }
+
+# arrow or bar used to indicate the current item in a menu
+color indicator  cyan                 color237
+# mode lines used to display info about the mailbox or message
+color status     black                color14
+# thread tree drawn in the message index and attachment menu
+color tree       cyan                 default
+# the ``~'' used to pad blank lines in the pager
+color tilde      brightblue           default
+# /* no comment */
+color attachment color66              default
+# hiliting bold patterns in the body of messages
+color bold       white                default
+# error messages printed by Mutt
+color error      brightred            black
+# the ``+'' markers at the beginning of wrapped lines in the pager
+color markers    red                  default
+# informational messages
+color message    brightyellow         black
+# hiliting of words in the pager
+color search     black                brightyellow
+# "General" index-colors
+color index      blue                 black         ~Q  # those I have already replied to.
+color index      blue                 default       ~D  # deleted
+color index      color124             default       ~O  # old
+color index      color245             default       ~P  # mail from myself
+color index      brightblue           yellow        ~T  # tagged
+color index      magenta              default       ~F  # flagged
+color index      yellow               default       ~v  # collapsed thread
+color index      magenta              black         ~k  # GPG
+color index      red                  default       ~N  # new
+
+# spam diagnostics: alerts in red...
+color header     red                  default       "^X-Spam.*"
+color header     red                  default       "^X-SB.*"
+color header     red                  default       "^X-Razor.*"
+color header     red                  default       "^X-Pyzor.*"
+color header     red                  default       "^X-DCC-.*:.*Fuz1=many Fuz2=many"
+color header     red                  default       "^X-MailScanner-Spamcheck:.spam"
+# ...harmless headers in normal green again
+color header     green                default       "^X-Spam-Status: No"
+color header     green                default       "^X-Spam-Checker-Version:"
+color header     green                default       "^X-Spam-Level: [^*]"
+color header     green                default       "^X-SpamBouncer:"
+color header     green                default       "^X-SBClass: OK"
+color header     green                default       "^X-SBPass:"
+color header     green                default       "^X-SBNote:"
+color header     green                default       "^X-Pyzor: Reported 0 times."
+# Header but standard information
+color header     white                default       "^To:.*"
+color header     white                default       "^From:.*"
+color header     white                default       "^Subject:.*"
+
+# Quoted test
+color quoted     magenta              default
+color quoted1    yellow               default
+color quoted2    red                  default
+color quoted3    brightred            default
+color quoted4    yellow               default
+color quoted5    cyan                 default
+color quoted6    green                default
+color quoted7    brightcyan           default
+color quoted8    brightgreen          default
+color signature  color79              default
+color underline  blue                 default
+
+mono  normal     none
+mono  attachment bold
+mono  bold       bold
+mono  error      standout
+mono  indicator  reverse
+mono  markers    bold
+mono  message    bold
+mono  status     underline
+mono  tree       none
+# *Emphasized*, /emphasized/, -strike-throut- and _emphasized_ words
+# Emphasize/Bold MD style
+mono  body       bold                 "[*][-[:alnum:]]+[*]"                 # *bold*
+mono  body       standout             "[*][-[:alnum:]]+ *[-[:alnum:]]+[*]"  # *really bold*
+mono  body       underline            "_[-[:alnum:]]+_"                     # _underline_
+
+# Mailto links with a optional subject line i. e.
+# 'mailto:strcat@gmx.net?subject=i+love+you
+color body       brightred            black         "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+# Variables  i. e. '$LOGNAME' or '$0'
+color body       green                black         "\\$[a-zA-Z][-_a-zA-Z]+"
+color body       green                black         "\\$[0-9]+[.,0-9]*"
+# Attribution line (i. e. '* Username wrote:')
+color body       red                  black         "^[*] .*:$"
+# SCREAMING IN CAPS
+color body       brightyellow         black         "\\<[-A-Z����']{4,}\\>"
+# Border lines.
+color body       cyan                 black         "( *[-+=#*~_]){6,}"
+
+# GPG / PGP / t-prot
+color body       green                black         "^#v[+-]"
+color body       brightmagenta        black         "^\\[---.*"
+color body       color241             default       "^gpg:.*"
+color body       brightred            default       "^(gpg: )? Bad signature.*"
+color body       yellow               default       "^(gpg: )?warning:.*"
+color body       brightgreen          default       "^(gpg: )?Korrekte Signatur von.*"
+color body       yellow               default       "^(gpg: )?WARNUNG:.*"
+#color body       yellow               default       "\[verfallen\]$"
+color body       yellow               default       "^(gpg: )?Signatur kann nicht geprüft werden:.*"
+color body       yellow               default       "^(gpg: )? +Es gibt keinen Hinweis, daß die Signatur wirklich dem vorgeblichen Besitzer gehört\.$"
+color body       red                  default       "^(gpg: ).*failed:.*"
+color body       color241             default       "^Primary key fingerprint:.*"
+color body       brightblack          yellow        "-----END PGP PUBLIC KEY BLOCK-----"
+color body       brightblack          yellow        "-----BEGIN PGP PUBLIC KEY BLOCK-----"
+color body       black                yellow        "Version: GnuPG v1.[01].[67].*"
+
+# S/MIME
+color body      green                 default         "^Verification successful$"
+
+# Highlight the relevant elements in the diff
+color body       green                default       "^diff \-.*"
+color body       green                default       "^index [a-f0-9].*"
+color body       green                default       "^\-\-\- .*"
+color body       green                default       "^[\+]{3} .*"
+color body       cyan                 default       "^[\+][^\+]+.*"
+color body       blue                 default       "^\-[^\-]+.*"
+color body       brightblue           default       "^@@ .*"
+
+color hdrdefault blue                 black
+color prompt     color111             black
+color normal     white                black
+color progress   black                color14
+
+# Color of the current, open, mailbox
+color sidebar_indicator               cyan          black
+# Color of the highlighted, but not open, mailbox.
+color sidebar_highlight               black         color8
+# Color of the divider separating the Sidebar from Mutt panels
+color sidebar_divider                 color8        black
+# Color to give mailboxes containing flagged mail
+color sidebar_flagged                 red           black
+# Color to give mailboxes containing new mail
+color sidebar_new                     green         black
+# Color to give mailboxes containing no new/flagged mail, etc
+color sidebar_ordinary                color245      default
