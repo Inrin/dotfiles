@@ -27,7 +27,7 @@ set showcmd
 set splitbelow
 set splitright
 set display+=lastline
-set spelllang=de,en,ru,ja,nb,nn
+set spelllang=de,en,ru,nb
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 set background=dark
