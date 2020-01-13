@@ -119,7 +119,7 @@ autocmd! bufwritepre *.{cpp} set expandtab | retab!
 autocmd! bufwritepost *.{cpp} set noexpandtab | retab!
 
 " Strip leading space
-autocmd FileType c,cpp,java autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType make set noexpandtab
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
