@@ -160,21 +160,11 @@ let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-" Syntaxchecker/Linter
-"set statusline +=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
 " Surround - comment out
 "let g:surround_47 = "/* \r */"
 
 "let g:delimitMate_expand_cr = 2
 
-"nnoremap <leader>t :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keybindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,3 +222,31 @@ map! <C-v>0  °
 map! <C-v>ce ¢
 map! <C-v>*  •
 map! <C-v>co ⌘
+
+"""""""""""""""""""""""""
+"      Plugins          "
+"""""""""""""""""""""""""
+
+" Syntaxchecker/Linter
+set statusline +=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+autocmd FileType tex let g:syntastic_check_on_open = 0
+autocmd FileType tex let g:syntastic_auto_loc_list = 0
+autocmd FileType tex let g:syntastic_always_populate_loc_list = 0
+
+" Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
+
+" Rust
+let g:rustfmt_autosave = 1
+
+" Ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-p>"
