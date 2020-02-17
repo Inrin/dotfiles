@@ -1,0 +1,24 @@
+[submodule ".vim/pack/plugins/start/rust.vim"]
+	path = .vim/pack/plugins/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule ".vim/pack/plugins/start/syntastic"]
+	path = .vim/pack/plugins/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule ".vim/pack/plugins/start/tagbar"]
+	path = .vim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule ".vim/pack/plugins/start/UltiSnips"]
+	path = .vim/pack/plugins/start/UltiSnips
+	url = https://github.com/sirver/UltiSnips
+[submodule ".vim/pack/plugins/start/vim-commentary"]
+	path = .vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule ".vim/pack/plugins/start/vim-uci"]
+	path = .vim/pack/plugins/start/vim-uci
+	url = https://github.com/cmcaine/vim-uci
+[submodule ".vim/pack/plugins/start/YouCompleteMe"]
+	path = .vim/pack/plugins/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe
+[submodule ".vim/pack/plugins/start/vim-snippets"]
+	path = .vim/pack/plugins/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
