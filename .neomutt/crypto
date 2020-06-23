@@ -1,4 +1,4 @@
-#set crypt_use_gpg2me = yes
+unset crypt_use_gpgme
 unset crypt_autosign
 set crypt_replyencrypt
 set crypt_replysign
