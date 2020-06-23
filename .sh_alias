@@ -16,4 +16,4 @@ alias yacrs='yay -Rnsc'
 alias yacu='yay -Syua'
 alias yai='yay -Si'
 
-source .sh_alias.local
+source $HOME/.sh_alias.local

@@ -66,4 +66,4 @@ ix() {
     curl $opts -F f:1='<-' $* ix.io/$id
 }
 
-source .sh_functions.local
+source $HOME/.sh_functions.local
