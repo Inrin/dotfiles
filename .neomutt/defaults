@@ -58,9 +58,12 @@ set reverse_alias
 set sleep_time = 0
 # Forgot to attach?
 set abort_noattach = "ask-yes"
-set attach_keyword = "\\<(Anhang|angehängt|attach|attached|attachments?|添付ファイル)\\>"
+#set attach_keyword = "\\<(Anhang|angehängt|attach|attached|attachments?|添付ファイル)\\>"
+set abort_noattach_regex = "\\<(Anhang|angehängt|attach|attached|attachments?|添付ファイル)\\>"
+set abort_noattach
 
 # Composing and sending mail
+set reverse_name
 set edit_headers
 set editor = "rvim -X --noplugin -c 'set noswapfile' -c 'set nobackup' -c 'set nowritebackup' -c 'set noundofile' +7"
 # Charset, Headers, DSN

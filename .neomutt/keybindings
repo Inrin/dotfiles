@@ -24,6 +24,7 @@ bind pager,index                <Esc>\Cp  purge-message
 
 # Threads
 bind browser,pager,index        \C/ search-opposite
+bind browser,pager,index        <Esc>l limit-current-thread
 
 #------------------------------------------------------------
 # Sidebar
