@@ -5,3 +5,5 @@
   co = checkout
 [diff]
 	noprefix = true
+[credential]
+	helper = cache
