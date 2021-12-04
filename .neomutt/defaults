@@ -1,3 +1,9 @@
+unmailboxes *
+unalternates *
+unlists *
+unsubscribe *
+reset all
+
 ## Paths
 set mailcap_path = "~/.neomutt/mailcap"
 set tmpdir = "~/.cache/neomutt/"
@@ -12,7 +18,6 @@ set ssl_force_tls
 # RFC 7525
 unset ssl_use_tlsv1
 unset ssl_use_tlsv1_1
-unset ssl_usesystemcerts
 # Useful for sidebar
 set imap_check_subscribed
 
@@ -26,7 +31,7 @@ unset collapse_unread
 set index_format = "%4C %Z %{%b %d} %-15.15F (%?l?%4l&%4c?) %s %>  %g %H %Y %M"
 # Sidebar
 set sidebar_short_path
-set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
+set sidebar_format = '%D%?F? [%F]?%* %?N?%N/?%S'
 set sidebar_folder_indent
 # Reading
 alternative_order text/plain text/enriched text/html
@@ -74,5 +79,3 @@ set honor_followup_to
 set dsn_return = hdrs
 set dsn_notify = "failure,delay,success"
 mailto_allow subject body cc bcc in-reply-to references
-
-# Files custom to taste

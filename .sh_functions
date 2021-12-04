@@ -1,3 +1,32 @@
+function commentLess {
+	sed -e '/^\s*#/d' -e '/^\s*$/d' "$1"
+}
+
+function hex {
+	printf '0x%X\n' "$1"
+}
+
+function dec {
+	printf '%d\n' "$1"
+}
+
+function oct {
+	printf '0%\n' "$1"
+}
+
+function randLine {
+	length="$(wc -l < $1)"
+	for i in {1.."$2"}; do
+		sed -n "$(shuf -i 1-"$length" -n 1)"p "$1"
+	done
+}
+
+_Box () {
+	echo $@ | sed -e 's/^/../' -e 's/$/../' -e 's/./=/g'
+		echo $@ | sed -e 's/^/= /' -e 's/$/ =/'
+		echo $@ | sed -e 's/^/../' -e 's/$/../' -e 's/./=/g'
+}
+
 getRandAlphanumeric()
 {
   head /dev/urandom | tr -dc A-Z0-9 | head -c"$1"
@@ -27,11 +56,6 @@ function open_with_pattern() {
 
 function youtube-extract {
 	curl --silent "$1" | grep --color=never -o -E "\"http?s://?(www\.)(youtu.be|youtube.com)/[0-9a-Z_+=/]+\"" | tr -d \"
-}
-
-youtube-comments()
-{
-  youtube-viewer --no-interactive --comments "$1"|less
 }
 
 # Examples:

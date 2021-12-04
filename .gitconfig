@@ -1,9 +1,16 @@
+[core]
+	editor = vim
 [user]
 	useConfigOnly = true
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  co = checkout
+	co = checkout
 [diff]
 	noprefix = true
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
 [credential]
 	helper = cache

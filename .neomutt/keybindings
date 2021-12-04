@@ -13,10 +13,8 @@ bind attach,browser,pager,index \CF next-page
 #bind attach,browser,pager,index \CB previous-page
 bind attach,browser,pager,index \Cu half-up
 bind attach,browser,pager,index \Cd half-down
-bind browser,pager              \Ce next-line
-bind browser,pager              \Cy previous-line
-bind index                      \Ce next-line
-bind index                      \Cy previous-line
+bind browser,pager,index        \Ce next-line
+bind browser,pager,index        \Cy previous-line
 
 bind pager,index                d  delete-message
 bind pager,index                <Delete>  delete-message
@@ -58,6 +56,9 @@ bind browser          . buffy-list
 bind editor           \Cp history-up
 bind editor           \Cn history-down
 bind index,pager      <ESC>\CK extract-keys
+bind index			  <ESC>n next-thread
+bind index			  <ESC>p previous-thread
+bind index			  <ESC>\Cn next-subthread
+bind index			  <ESC>\Cp previous-subthread
 
-macro index,pager 		\Cb |urlview\n
-macro index,pager 		\CB |urlscan\n
+macro index,pager 		\Cb |urlscan\n

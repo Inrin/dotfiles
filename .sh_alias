@@ -4,10 +4,10 @@ alias rm='rm -I --preserve-root'
 alias clang='clang -fsanitize=address -fno-omit-frame-pointer'
 alias xclip='xclip -selection clipboard'
 
-alias pac='sudo pacman -S'
+alias pac='doas pacman -S'
 alias pacs='pacman -Ss'
-alias pacrs='sudo pacman -Rnsc'
-alias pacu='sudo pacman -Syu'
+alias pacrs='doas pacman -Rnsc'
+alias pacu='doas pacman -Syu'
 alias paci='pacman -Si'
 
 alias yac='yay -S'
